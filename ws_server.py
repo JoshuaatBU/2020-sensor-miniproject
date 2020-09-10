@@ -17,7 +17,6 @@ import asyncio
 
 from sp_iotsim.server import main
 
-
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description="WebSocket IoT simulator server")
     p.add_argument("host", help="Host address", nargs="?", default="localhost")

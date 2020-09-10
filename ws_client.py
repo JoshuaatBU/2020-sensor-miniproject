@@ -16,6 +16,7 @@ import argparse
 import asyncio
 
 from sp_iotsim.client import main
+from pathlib import Path
 
 
 if __name__ == "__main__":
@@ -24,14 +25,14 @@ if __name__ == "__main__":
     p.add_argument("-host", help="Host address", default="localhost")
     p.add_argument("-port", help="network port", type=int, default=8765)
     p.add_argument(
-        "-max_packets",
+            "-max_packets",
         help="shut down program after total packages received",
         type=int,
         default=100000,
-    )
+	)
     P = p.parse_args()
-
     try:
         asyncio.run(main(P.port, P.host, P.max_packets, P.log))
+        
     except KeyboardInterrupt:
         print(P.log)
