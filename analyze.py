@@ -61,3 +61,19 @@ if __name__ == "__main__":
         plt.xlabel("Time (seconds)")
 
     plt.show()
+    
+    
+    #Calculate statistical details of the temperatures
+    temps = data['temperature']
+    temp_medians = temps.median()
+    temp_median_global = np.nanmedian(temps)
+    temp_var = temps.var()
+    temp_var_global = np.nanvar(temps)
+    
+    
+    #Calculate statistical details of the occupency
+    occup = data['occupancy']
+    occup_medians = occup.median()
+    occup_median_global = np.nanmedian(occup)
+    occup_vars = occup.var()
+    occup_var_global = np.nanvar(occup)
