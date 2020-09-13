@@ -175,3 +175,25 @@ if __name__ == "__main__":
     plt.xlabel('Seconds between arrivals')
     plt.show()
     print('From the source code, the distribution is generated from an erlang waiting time with k = 1, which simplifies to exponential as expected')
+    
+    """
+    Task 3
+    """
+    print('We can notify possible failures based on distance from the mean')
+    lab1_temp_failed = abs(temps.lab1 - temps.lab1.mean()) > 2 * pow(temps.lab1.var(),0.5)
+    if(not temps.lab1[lab1_temp_failed].empty):
+        print('Potential failed sensor measurements in lab 1: \n')
+        print(temps.lab1[lab1_temp_failed])
+        print()
+    
+    class1_temp_failed = abs(temps.class1 - temps.class1.mean()) > 2 * pow(temps.class1.var(),0.5)
+    if(not temps.class1[class1_temp_failed].empty):
+        print('Potential failed sensor measurements in class 1: \n')
+        print(temps.class1[class1_temp_failed])
+        print()
+        
+    office_temp_failed = abs(temps.office - temps.office.mean()) > 2 * pow(temps.office.var(),0.5)
+    if(not temps.office[office_temp_failed].empty):
+        print('Potential failed sensor measurements in office: \n')
+        print(temps.office[office_temp_failed])
+        print()
