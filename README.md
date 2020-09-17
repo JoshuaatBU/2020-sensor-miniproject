@@ -170,6 +170,7 @@ This is to make things simpler since asynchronous programming requires specific 
 * Even with a driven change in temperature, two standard deviations should only eliminate actual failures
 * A persistent change would not indicate a failed sensor in a real system, because these sensors are simulated on the back end by a defined distribution, it likely would. Temperature changes for all kinds of reasons, daily temperature cycles, occupences, etc that would drive persistent changes.
 * What are possible bounds on temperature for each room type?
+* The temperature appears to be normally distributed, so bounds were defined using 2*sqrt(variance) for each sensor. Technically, there aren't any hard bounds on what the sensor could read.
 
 ### Task 4: Conclusions
 
