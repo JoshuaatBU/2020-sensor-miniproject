@@ -167,7 +167,7 @@ This is to make things simpler since asynchronous programming requires specific 
 * implement an algorithm that detects anomalies in **temperature** sensor data
 * Does a persistent change in temperature always indicate a failed sensor?
 * As a practical measure in the above example, we used a 5-95 filter to deal with outliers, but given that the cauchy distribution used is very similar to a normal distribution in this case, we can also try to detect them by filtering by two standard distributions
-* Even with a driven change in temperature, two standard deviations should only eliminate actual failures
+* Even with a driven change in temperature, two standard deviations will still throw some false failures, but should be cautious enough to catch failures.
 * A persistent change would not indicate a failed sensor in a real system, because these sensors are simulated on the back end by a defined distribution, it likely would. Temperature changes for all kinds of reasons, daily temperature cycles, occupences, etc that would drive persistent changes.
 * What are possible bounds on temperature for each room type?
 * The temperature appears to be normally distributed, so bounds were defined using 2*sqrt(variance) for each sensor. Technically, there aren't any hard bounds on what the sensor could read.

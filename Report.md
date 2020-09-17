@@ -1,3 +1,32 @@
+# Task 2 Answers
+* what are the median and variance observed from the temperature data (at least 100 values)  [3 points]
+* The median and variance of the temperatures are:
+lab 1: 20.987, 2.207
+class 1: 26.947, 136.274
+Office: 23.004, 51.040
+Global: 23.00, 68.63
+* what are the median and variance observed from the occupancy data (at least 100 values)  [3 points]
+* The median and variance of the occupancy are:
+lab1       5.0, 4.46
+class1    19.0, 19.73
+office     2.0, 2.0
+Global: 5.0, 63.83
+* plot the probability distribution function for each sensor type? [6 points]
+* What is the mean and variance of the *time interval* of the sensor readings? Please plot its probability distribution function. Does it mimic a well-known distribution for connection intervals in large systems? [8 points]
+*The mean and variance of the time in between arrivals is 0.928 and 0.8439
+In stochastic processes, arrivals are often modeled as poisson distributions, yielding exponential waiting times between arrivals
+Assuming a lambda of 1.078, an exponential distribution would have a mean of 0.927 and a variance of 0.860, which is the case here. There is some difference due to rounding in calculations
+From the source code, the distribution is generated from an erlang waiting time with k = 1, which simplifies to exponential as expected
+
+# Task 3 Answers
+* implement an algorithm that detects anomalies in **temperature** sensor data
+* Does a persistent change in temperature always indicate a failed sensor?
+* As a practical measure in the above example, we used a 5-95 filter to deal with outliers, but given that the cauchy distribution used is very similar to a normal distribution in this case, we can also try to detect them by filtering by two standard distributions
+* Even with a driven change in temperature, two standard deviations will still throw some false failures, but should be cautious enough to catch failures.
+* A persistent change would not indicate a failed sensor in a real system, because these sensors are simulated on the back end by a defined distribution, it likely would. Temperature changes for all kinds of reasons, daily temperature cycles, occupences, etc that would drive persistent changes.
+* What are possible bounds on temperature for each room type?
+* The temperature appears to be normally distributed, so bounds were defined using 2*sqrt(variance) for each sensor. Technically, there aren't any hard bounds on what the sensor could read.
+
 # Sensor simulation miniproject Report
 The following analysis examines and describes the behavior of a simulated IoT network consisting of occupant, temperature and co2 sensors.
 	
